@@ -6,6 +6,7 @@ Se puede ingresar cualquier cadena de caracteres(String) pero solo se toma en cu
 Primero se debe ingresar el dia, luego el mes y finalmente el año.
 Para separar los datos se puede usar espacios o los siguientes caracteres: '/', '-'
 ## Ingreso de la hora:
+(Formato de 24 horas)-
 Primero se ingresa la hora, luego los minutos y finalmente los segundos.
 Para separar los datos se pueden usar espacios o el caracter: ':'
 ### Pre-requisitos 📋
