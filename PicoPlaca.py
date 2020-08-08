@@ -1,7 +1,7 @@
 from datetime import datetime, date, time
 
 
-def picoPlaca(plateLastDigit, yr, mth, day, h, mn, sec):
+def picoPlaca(placaUltimoDigito, yr, mth, day, h, mn, sec):
     circula=True
     fechaHora=datetime(yr, mth, day, h, mn, sec)    
     horaAm1=time(7,00,00)
@@ -14,15 +14,15 @@ def picoPlaca(plateLastDigit, yr, mth, day, h, mn, sec):
     if(diaIngresado == "Saturday" or diaIngresado == "Sunday"):
         circula=True
     else:
-        if( (plateLastDigit==1 or plateLastDigit==2 and diaIngresado == "Monday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ): 
+        if( (placaUltimoDigito==1 or placaUltimoDigito==2 and diaIngresado == "Monday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ): 
             circula=False
-        elif( (plateLastDigit==3 or plateLastDigit==4 and diaIngresado == "Tuesday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==3 or placaUltimoDigito==4 and diaIngresado == "Tuesday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
-        elif( (plateLastDigit==5 or plateLastDigit==6 and diaIngresado == "Wednesday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==5 or placaUltimoDigito==6 and diaIngresado == "Wednesday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
-        elif( (plateLastDigit==7 or plateLastDigit==8 and diaIngresado == "Thursday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==7 or placaUltimoDigito==8 and diaIngresado == "Thursday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
-        elif( (plateLastDigit==9 or plateLastDigit==0 and diaIngresado == "Friday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==9 or placaUltimoDigito==0 and diaIngresado == "Friday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
 
     return circula
@@ -34,14 +34,14 @@ flag=True
 while(flag==True):
     placa=input('Ingrese la placa de su vehículo(AAA-0123):')   
     try:
-        lastDigit=int(placa[len(placa)-1])        
+        ultimoDigito=int(placa[len(placa)-1])        
         flag=False     
     except:
         print("Placa no valida")
         continue
 
 print('Placa ingresada: ',placa.upper())
-print('Ultimo digito: ',lastDigit)
+print('Ultimo digito: ',ultimoDigito)
 
 
 flag=True
@@ -65,25 +65,21 @@ while(flag==True):
     Hora=input('Ingrese la hora(hh:mm:ss):')    
     try:
         nuevaHora=Hora.split(":")
-        Hora=int(nuevaHora[0])
+        hora=int(nuevaHora[0])
         minuto=int(nuevaHora[1])
         segundo=int(nuevaHora[2])
-        horaIng=time(Hora, minuto, segundo)
+        horaIng=time(hora, minuto, segundo)
         flag=False
     except:
         print('Hora no valida')
         continue
 
 print('Hora ingresada: ', horaIng)
-fechaHora=datetime(year, mes, dia, Hora, minuto, segundo)
+fechaHora=datetime(year, mes, dia, hora, minuto, segundo)
 print('Fecha final: ', fechaHora.strftime("%c"))
 print(fechaHora.strftime("%A"))
 
-if( picoPlaca(lastDigit, year, mes, dia, Hora, minuto, segundo) == True ):
+if( picoPlaca(ultimoDigito, year, mes, dia, hora, minuto, segundo) == True ):
     print("Usted si puede circular")
 else:
     print("Usted no puede circular")
-
-
-
-
