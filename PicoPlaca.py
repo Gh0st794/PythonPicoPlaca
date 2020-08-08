@@ -27,22 +27,48 @@ def picoPlaca(placaUltimoDigito, yr, mth, day, h, mn, sec):
 
     return circula
 
+def validarPlaca(placa):
+    
+    if( (len(placa)<7) or len(placa)>8 ):
+        return False
+
+    try:
+        nuevaPlaca=placa.split("-")
+    except:      
+        return False
+        
+    letras=nuevaPlaca[0]
+    if( letras.isalpha() and len(letras)>0 and len(letras)==3 ):
+        l=str(letras)
+    else:
+        return False
+        
+    numeros=nuevaPlaca[1]
+    if( numeros.isdigit() and len(numeros)>0 and (len(numeros)==4 or len(numeros)==3 ) ):
+        n=int(numeros)
+    else:
+        return False
+            
+    if( l.isalpha() and type(n)==int):      
+        return True            
+    else:
+        return False
+
 
 print("\tPICO Y PLACA-PREDICTOR")
 
 flag=True
 while(flag==True):
-    placa=input('Ingrese la placa de su vehículo(AAA-0123):')   
-    try:
-        ultimoDigito=int(placa[len(placa)-1])        
-        flag=False     
-    except:
+    placa=input('Ingrese la placa de su vehículo(AAA-0123):')
+    if( validarPlaca(placa) == True ):
+        flag=False
+    else:
         print("Placa no valida")
-        continue
+        flag=True
 
+ultimoDigito=int(placa[len(placa)-1])
 print('Placa ingresada: ',placa.upper())
 print('Ultimo digito: ',ultimoDigito)
-
 
 flag=True
 while(flag==True):
