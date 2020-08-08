@@ -32,7 +32,7 @@ print("\tPICO Y PLACA-PREDICTOR")
 
 flag=True
 while(flag==True):
-    placa=input("Ingrese la placa de su vehículo(AAA-0123):")   
+    placa=input('Ingrese la placa de su vehículo(AAA-0123):')   
     try:
         lastDigit=int(placa[len(placa)-1])        
         flag=False     
@@ -46,43 +46,32 @@ print('Ultimo digito: ',lastDigit)
 
 flag=True
 while(flag==True):
-    fecha=input("Ingrese la fecha (dd/mm/yyyy):")
-    for f in fecha:
-        if f=='/':
-            nuevaFecha=fecha.split('/')        
-        else:
-            if f=='-':
-                nuevaFecha=fecha.split('-')
-            else:
-                nuevaFecha=fecha.split()
-    try:        
-        dia=int(nuevaFecha[0]) 
+    fecha=input('Ingrese la fecha (dd/mm/yyyy):')
+    try:
+        nuevaFecha=fecha.split("/")
+        dia=int(nuevaFecha[0])
         mes=int(nuevaFecha[1])
         year=int(nuevaFecha[2])
         fechaIng=date(year, mes, dia)
-        flag=False     
+        flag=False
     except:
-        print("Fecha no valida")
+        print('Fecha no valida')
         continue
 
 print('Fecha ingresada: ',fechaIng)
 
 flag=True
 while(flag==True):
-    Hora=input("Ingrese la hora(hh:mm:ss):")
-    if f==':':        
-        nuevaHora=Hora.split(':')
-    else:
-        nuevaHora=Hora.split()
-
+    Hora=input('Ingrese la hora(hh:mm:ss):')    
     try:
+        nuevaHora=Hora.split(":")
         Hora=int(nuevaHora[0])
         minuto=int(nuevaHora[1])
         segundo=int(nuevaHora[2])
         horaIng=time(Hora, minuto, segundo)
         flag=False
     except:
-        print("Hora no valida")
+        print('Hora no valida')
         continue
 
 print('Hora ingresada: ', horaIng)
