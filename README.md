@@ -1,7 +1,7 @@
 # PythonPicoPlaca
 Programa que predice si se puede o no circular en las carreteras de Ecuador (Antes del covid19)
 ## Ingreso de la placa:
-Se puede ingresar cualquier cadena de caracteres(String). Se puede ingresar de las siguientes formas:
+Se puede ingresar cualquier cadena de caracteres(String). De las siguientes formas:
 (AAA-0123), o (AAA-123) 
 ## Ingreso de la fecha:
 Primero se debe ingresar el dia, luego el mes y finalmente el año.
