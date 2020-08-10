@@ -1,5 +1,5 @@
 # Pico&Placa_predictor
-Programa que predice si se puede o no circular en las carreteras de Ecuador (Antes del covid19)
+Programa que predice si se puede o no circular en las carreteras de Quito-Ecuador (Antes del covid19)
 ## Ingreso de la placa:
 Se puede ingresar cualquier cadena de caracteres(String). De las siguientes formas:
 (AAA-0123), o (AAA-123) 
