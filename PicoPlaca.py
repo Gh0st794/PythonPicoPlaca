@@ -8,21 +8,23 @@ def picoPlaca(placaUltimoDigito, yr, mth, day, h, mn, sec):
     horaAm2=time(9,30,00)
     horaPm1=time(16,00,00)
     horaPm2=time(19,30,00)
+    noCirculaAm=time(5,00,00)
+    noCirculaPm=time(20,00,00)
     horaIngresada=time(h,mn,sec)
     diaIngresado = fechaHora.strftime("%A")
     
     if(diaIngresado == "Saturday" or diaIngresado == "Sunday"):
         circula=True
     else:
-        if( (placaUltimoDigito==1 or placaUltimoDigito==2 and diaIngresado == "Monday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ): 
+        if( ((placaUltimoDigito==1 or placaUltimoDigito==2) and diaIngresado == "Monday" and (horaIngresada>=noCirculaAm and horaIngresada <= noCirculaPm)) or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ): 
             circula=False
-        elif( (placaUltimoDigito==3 or placaUltimoDigito==4 and diaIngresado == "Tuesday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==3 or placaUltimoDigito==4 and diaIngresado == "Tuesday" and (horaIngresada>=noCirculaAm and horaIngresada <= noCirculaPm)) or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
-        elif( (placaUltimoDigito==5 or placaUltimoDigito==6 and diaIngresado == "Wednesday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==5 or placaUltimoDigito==6 and diaIngresado == "Wednesday" and (horaIngresada>=noCirculaAm and horaIngresada <= noCirculaPm)) or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
-        elif( (placaUltimoDigito==7 or placaUltimoDigito==8 and diaIngresado == "Thursday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==7 or placaUltimoDigito==8 and diaIngresado == "Thursday" and (horaIngresada>=noCirculaAm and horaIngresada <= noCirculaPm)) or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
-        elif( (placaUltimoDigito==9 or placaUltimoDigito==0 and diaIngresado == "Friday") or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
+        elif( (placaUltimoDigito==9 or placaUltimoDigito==0 and diaIngresado == "Friday" and (horaIngresada>=noCirculaAm and horaIngresada <= noCirculaPm)) or (horaIngresada>=horaAm1 and horaIngresada<=horaAm2) or (horaIngresada>=horaPm1 and horaIngresada<=horaPm2) ):
             circula=False
 
     return circula
@@ -103,7 +105,6 @@ while(flag==True):
 print('Hora ingresada: ', horaIng)
 fechaHora=datetime(year, mes, dia, hora, minuto, segundo)
 print('Fecha final: ', fechaHora.strftime("%c"))
-print(fechaHora.strftime("%A"))
 
 if( picoPlaca(ultimoDigito, year, mes, dia, hora, minuto, segundo) == True ):
     print("Usted si puede circular")
