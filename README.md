@@ -15,5 +15,5 @@ instalar python 3
 ### Instalación 🔧
 Se puede clonar el repositorio y ejecutar el archivo PicoPlaca.py
 ## Autor ✒️
-* **Jonathan Geovanny Llanos Gonzalez** - [ghostgeo21@gmail.com](mailto:ghostgeo21@gmail.com)
+* **Jonathan Geovanny Llanos Gonzalez**
 
